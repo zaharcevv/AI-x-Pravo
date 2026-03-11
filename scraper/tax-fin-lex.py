@@ -2,6 +2,7 @@ import requests
 import json
 import time
 from pymongo import MongoClient
+from datetime import datetime
 from dotenv import load_dotenv
 import os
 
@@ -16,6 +17,7 @@ try:
 except Exception as e:
     print(f"Connection failed: {e}")
 
+client = get_client()
 
 page = 1
 pageSize = 4
@@ -73,6 +75,8 @@ for item in items:
         print(data)
 
 
+    print(date)
+    date = datetime.fromisoformat(date)
 
     print(id)
 
@@ -87,8 +91,22 @@ for item in items:
     #print(text)
 
     ## llm + DB insert
+    response = summarize_html_content(text, client)
+    res_js = json.loads(response)
+    summary = res_js["summary"]
+    area = res_js["leagal_area"]
+
+    collection.insert_one({
+        "id": id, 
+        "title": title,
+        "date": date,
+        "area": area,
+        "locality": locality,
+        "url": url,
+        "summary": summary,
+    })
 
 
-    time.sleep(60 / rate_lim + 1)
+    time.sleep(60 / rate_lim)
 
 
