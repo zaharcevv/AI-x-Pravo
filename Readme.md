@@ -29,4 +29,4 @@ AI-powered legal monitoring tool for tracking Slovenian and EU legislative chang
 
 ## Team
 
-Built at [Hackathon Name] 2026.
+Built at AIxPravo Heckathon 2026.
