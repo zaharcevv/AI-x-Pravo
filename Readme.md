@@ -14,8 +14,8 @@ AI-powered legal monitoring tool for tracking Slovenian and EU legislative chang
 ## Tech stack
 
 - **Scraping & data:** requests / BeautifulSoup / EUR-Lex API / PISRS API
-- **AI layer:** Claude API (filtering, classification, summarization)
-- **Output:** structured JSON + human-readable table
+- **AI layer:** ChatGPT API (filtering, classification, summarization)
+- **Output:** web portal
 
 ## Sources monitored
 
